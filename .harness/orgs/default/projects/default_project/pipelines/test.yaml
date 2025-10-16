@@ -12,7 +12,7 @@ pipeline:
         build:
           type: branch
           spec:
-            branch: harness_test
+            branch: main
   stages:
     - stage:
         name: Run Python Script
@@ -34,6 +34,7 @@ pipeline:
                   name: Execute Python Script
                   identifier: run_python
                   spec:
+                    connectorRef: account.harnessImage
                     image: python:3.10
                     shell: Sh
                     command: |-

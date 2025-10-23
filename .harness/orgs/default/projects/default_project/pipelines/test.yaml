@@ -28,7 +28,8 @@ pipeline:
                   name: Execute Python Script
                   identifier: run_python
                   spec:
-                    connectorRef: account.harnessImage
+                    # ❌ Remove connectorRef because it forces Harness internal registry
+                    # ✅ Use direct image from Docker Hub
                     image: python:3.11
                     shell: Sh
                     command: |-
@@ -47,7 +48,6 @@ pipeline:
               namespace: harness-delegate-ng
               automountServiceAccountToken: true
               nodeSelector: {}
-              harnessImageConnectorRef: account.harnessImage
               os: Linux
         failureStrategies:
           - onFailure:

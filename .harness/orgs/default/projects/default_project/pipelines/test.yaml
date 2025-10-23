@@ -28,7 +28,7 @@ pipeline:
                   name: Execute Python Script
                   identifier: run_python
                   spec:
-                    connectorRef: account.harnessImage
+                    connectorRef: harness_local
                     image: python:3.11
                     shell: Sh
                     command: |-

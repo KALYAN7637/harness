@@ -12,7 +12,7 @@ pipeline:
         build:
           type: branch
           spec:
-            branch: harness_test
+            branch: main
   stages:
     - stage:
         name: Run Python Script
@@ -21,12 +21,6 @@ pipeline:
         type: CI
         spec:
           cloneCodebase: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Docker
-            spec: {}
           execution:
             steps:
               - step:
@@ -46,6 +40,15 @@ pipeline:
                       echo "Running Python script..."
                       python3 trigger_dataflow.py
                       echo "✅ Python script completed successfully!"
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: harnessk8sconnector
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              harnessImageConnectorRef: account.harnessImage
+              os: Linux
         failureStrategies:
           - onFailure:
               errors:

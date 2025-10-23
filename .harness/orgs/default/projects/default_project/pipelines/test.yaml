@@ -30,7 +30,7 @@ pipeline:
                   spec:
                     # ❌ Remove connectorRef because it forces Harness internal registry
                     # ✅ Use direct image from Docker Hub
-                    image: python:3.11
+                    image: docker.io/python:3.11
                     shell: Sh
                     command: |-
                       echo "Installing dependencies if requirements.txt exists..."

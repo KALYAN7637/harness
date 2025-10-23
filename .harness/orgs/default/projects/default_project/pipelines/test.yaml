@@ -47,7 +47,6 @@ pipeline:
               namespace: harness-delegate-ng
               automountServiceAccountToken: true
               nodeSelector: {}
-              harnessImageConnectorRef: account.harnessImage
               os: Linux
         failureStrategies:
           - onFailure:

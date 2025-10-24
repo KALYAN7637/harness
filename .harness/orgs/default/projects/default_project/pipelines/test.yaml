@@ -39,7 +39,7 @@ pipeline:
 
                       echo "Running Python script..."
                       python3 trigger_dataflow.py
-                      echo "✅ Python script completed successfully!"
+                      echo " Python script completed successfully!"
           infrastructure:
             type: KubernetesDirect
             spec:

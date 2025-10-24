@@ -103,8 +103,8 @@ print(f"Final DataFlow Status: {status}")
 if status == "COMPLETED":
     exit(0)  
 elif status in ["FAILED", "ERROR"]:
-    print(f'dataflow status is{status}')
     exit(1)  
 else:
     exit(1)  
+
 

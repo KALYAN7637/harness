@@ -29,7 +29,7 @@ pipeline:
                   identifier: run_python
                   spec:
                     connectorRef: harness_local
-                    image: python:3.11
+                    image: python 3.11
                     shell: Sh
                     command: |-
                       echo "Installing dependencies if requirements.txt exists..."

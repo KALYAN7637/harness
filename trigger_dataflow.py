@@ -10,9 +10,9 @@ bearer_token=''
 def trigger_dataflow():
     global bearer_token
     client_id = "dataopssuite-restapi-client"
-    client_secret = "hhTJgx#t"
+    client_secret = "y7eGVu2H"
     username = "kalyanachakravarthi.nalam"
-    password = "U2FsdGVkX18gYIzb2S9jHqhtJmjDXDmO6V6YXCHQj70="
+    password = "U2FsdGVkX19yEDqfqtBFaj5DOQlkM7mB60ukWGbcu2I="
 
 
 
@@ -106,5 +106,6 @@ elif status in ["FAILED", "ERROR"]:
     exit(1)  
 else:
     exit(1)  
+
 
 

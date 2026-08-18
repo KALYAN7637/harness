@@ -10,9 +10,9 @@ bearer_token=''
 def trigger_dataflow():
     global bearer_token
     client_id = "dataopssuite-restapi-client"
-    client_secret = "hhTJgx#t"
+    client_secret = "Sk34qPSv"
     username = "kalyanachakravarthi.nalam"
-    password = "U2FsdGVkX18gYIzb2S9jHqhtJmjDXDmO6V6YXCHQj70="
+    password = "U2FsdGVkX1+ebNgwQwFL7ehZ9IijRNJabdWtTcDnw20="
 
 
 
@@ -44,7 +44,7 @@ def trigger_dataflow():
     }
 
     response = requests.post(auth_url, headers=headers, data=payload)
-    dataflow_id='8a03d933-4e56-4eb2-9230-2cbab0c3f9f2'
+    dataflow_id='70f012b4-24bb-4e8d-8b7a-53068251da8d'
     if response.status_code == 200:
         access_token = response.json().get("access_token")
         bearer_token=access_token

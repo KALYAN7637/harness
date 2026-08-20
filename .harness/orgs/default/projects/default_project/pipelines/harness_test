@@ -1,0 +1,53 @@
+pipeline:
+  name: run_python_script
+  identifier: run_python_script
+  projectIdentifier: default_project
+  orgIdentifier: default
+  properties:
+    ci:
+      codebase:
+        connectorRef: harnessgitconnector
+        repoName: harness
+        build:
+          type: branch
+          spec:
+            branch: harness_test
+  stages:
+    - stage:
+        name: Run Python Script
+        identifier: run_python_stage
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Execute Python Script
+                  identifier: run_python
+                  spec:
+                    connectorRef: docker
+                    image: kalyanachakravarthi76/harness:3.10
+                    shell: Sh
+                    command: |-
+                      echo "Installing dependencies if requirements.txt exists..."
+
+
+                      echo "Running Python script..."
+                      python3 trigger_dataflow.py
+                      echo "✅ Python script completed successfully!"
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: harnessk8sconnector
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
+        description: ""
